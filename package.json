@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "tw-patch install"
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -15,8 +16,11 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
+    "tailwindcss-patch": "^4.0.0",
+    "unplugin-tailwindcss-mangle": "^3.0.1",
     "vite": "^4.3.9"
   }
 }
