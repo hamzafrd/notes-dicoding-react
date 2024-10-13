@@ -45,7 +45,9 @@ export default class NotesInput extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.onSubmitEventHandler} className="border flex flex-col gap-3 w-3/6 m-3 p-4 rounded-md">
+        <form
+          onSubmit={this.onSubmitEventHandler}
+          className="border flex flex-col gap-3 md:w-1/2 sm:w-5/6 w-full m-3 p-4 rounded-md">
           <p className="text-xl text-right">Sisa Karater : {this.state.maxChar}</p>
 
           <input
