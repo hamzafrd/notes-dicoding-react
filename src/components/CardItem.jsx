@@ -2,11 +2,11 @@ import React from "react";
 import { showFormattedDate } from "../utils";
 import CardButton from "./CardButton";
 
-export default function CardItem({ note, deleteNotes, arsipNotes }) {
+export default function CardItem({ note, deleteNotes, arsipNotes, index }) {
   return (
-    <div className="grid max-h-max grid-cols-12 border [&>*]:px-3 [&>*]:py-1">
+    <div className="grid max-h-max min-w-[260px] grid-cols-12 border [&>*]:px-3 [&>*]:py-1">
       <div className="col-span-2  border-r border-b col-start-1">
-        <p>{note.id}</p>
+        <p>{index + 1}</p>
       </div>
 
       <div className="col-span-10 border-b">
