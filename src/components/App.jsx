@@ -16,7 +16,8 @@ export default class App extends Component {
 
   onDeleteHandler = (id) => {
     const notes = this.state.notes.filter((note) => note.id !== id);
-    this.setState({ notes, query: "" });
+    this.setState({ notes });
+    this.onSearchHandler();
   };
 
   onArsipHandler = (id, isArchived) => {
@@ -27,13 +28,11 @@ export default class App extends Component {
 
     const collectedData = [...otherNotes, ...toggleArsipNotes];
 
-    this.setState({
-      notes: collectedData,
-      query: "",
-    });
+    this.setState({ notes: collectedData });
+    this.onSearchHandler();
   };
 
-  onSearchHandler = (query = "") => {
+  onSearchHandler = (query = this.state.query) => {
     this.setState((prevState) => {
       const notes = [...prevState.notes].filter(
         (note) => note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query)
@@ -47,13 +46,12 @@ export default class App extends Component {
   };
 
   onAddNotesHandler = ({ title, body, archived }) => {
-    const notesId = this.state.notes.length <= 0 ? 1 : this.state.notes[this.state.notes.length - 1].id + 1;
     this.setState((prevState) => {
       return {
         notes: [
           ...prevState.notes,
           {
-            id: notesId,
+            id: +new Date(),
             title,
             body,
             createdAt: new Date().toISOString(),
@@ -62,7 +60,9 @@ export default class App extends Component {
         ],
       };
     });
+    this.onSearchHandler();
   };
+
   render() {
     return (
       <div className="bg-gray-900 min-h-svh flex flex-col relative">
