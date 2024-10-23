@@ -2,7 +2,7 @@ import React from "react";
 import NotesSearch from "./NotesSearch";
 export default function AppHeader({ cariNotes, query }) {
   return (
-    <header className="border-b border-gray-500">
+    <header className="border-b border-gray-500 sticky top-0 bg-gray-900 z-10">
       <div className="container flex items-center justify-between px-5 py-3 border-x border-gray-500">
         <h1 className="text-4xl">
           Noted <span className="text-5xl">.</span>
